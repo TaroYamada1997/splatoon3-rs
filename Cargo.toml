@@ -1,5 +1,7 @@
 [package]
 name = "splatoon3-rs"
+description = "スプラトゥーン3のステージ情報を取得するクレートです"
+license = "MIT"
 version = "0.1.0"
 edition = "2021"
 
