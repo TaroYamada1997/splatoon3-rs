@@ -12,25 +12,25 @@ pub struct Schedule {
     pub rule: Rule,
     pub stages: Vec<Stage>,
     pub event: Option<Event>,
-    pub is_fest: bool
+    pub is_fest: bool,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Rule {
     pub key: String,
-    pub name: String
+    pub name: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Stage {
     pub id: u32,
     pub name: String,
-    pub image: String
+    pub image: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Event {
     pub id: String,
     pub name: String,
-    pub desc: String
+    pub desc: String,
 }
