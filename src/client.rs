@@ -1,4 +1,4 @@
-use reqwest::{Client, header};
+use reqwest::{header, Client};
 use std::time::Duration;
 
 const DEFAULT_TIMEOUT: u64 = 30;
@@ -10,7 +10,9 @@ pub struct SplaClient {
 
 impl SplaClient {
     pub fn new() -> Result<Self, Box<dyn std::error::Error>> {
-        Self::new_with_base_url(std::env::var("DEFAULT_BASE_URL").unwrap_or_else(|_| "".to_string()))
+        Self::new_with_base_url(
+            std::env::var("DEFAULT_BASE_URL").unwrap_or_else(|_| "".to_string()),
+        )
     }
 
     pub fn new_with_base_url(base_url: String) -> Result<Self, Box<dyn std::error::Error>> {
@@ -32,7 +34,11 @@ impl SplaClient {
     }
 
     pub(crate) fn _build_url(&self, endpoint: &str) -> String {
-        format!("{}/{}", self._base_url.trim_end_matches('/'), endpoint.trim_start_matches('/'))
+        format!(
+            "{}/{}",
+            self._base_url.trim_end_matches('/'),
+            endpoint.trim_start_matches('/')
+        )
     }
 }
 
