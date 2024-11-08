@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct BankaraOpenStagesResponse {
-    pub results: Vec<Schedule>
+pub struct StagesResponse {
+    pub results: Vec<Schedule>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
