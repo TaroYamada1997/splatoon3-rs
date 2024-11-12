@@ -5,7 +5,7 @@ const DEFAULT_TIMEOUT: u64 = 30;
 
 pub struct SplaClient {
     pub(crate) client: Client,
-    _base_url: String,
+    pub base_url: String,
 }
 
 impl SplaClient {
@@ -29,14 +29,14 @@ impl SplaClient {
 
         Ok(Self {
             client,
-            _base_url: base_url.to_string(),
+            base_url: base_url.to_string(),
         })
     }
 
     pub(crate) fn _build_url(&self, endpoint: &str) -> String {
         format!(
             "{}/{}",
-            self._base_url.trim_end_matches('/'),
+            self.base_url.trim_end_matches('/'),
             endpoint.trim_start_matches('/')
         )
     }
@@ -57,6 +57,6 @@ mod tests {
         let base_url = "https://custom.api.com".to_string();
         let client = SplaClient::new_with_base_url(base_url.clone());
         assert!(client.is_ok());
-        assert_eq!(client.unwrap()._base_url, base_url.clone());
+        assert_eq!(client.unwrap().base_url, base_url.clone());
     }
 }
