@@ -10,9 +10,11 @@ impl SplaClient {
     pub async fn get_next_bankara_open_stages(
         &self,
     ) -> Result<Vec<Schedule>, Box<dyn std::error::Error>> {
+        let base_url = &self.base_url;
+
         let response = self
             .client
-            .get(format!("{}/{}", self.base_url, BANKARA_OPEN_NEXT_ENDPOINT))
+            .get(format!("{base_url}/{BANKARA_OPEN_NEXT_ENDPOINT}"))
             .send()
             .await?;
 
@@ -30,9 +32,11 @@ impl SplaClient {
     pub async fn get_now_regular_open_stages(
         &self,
     ) -> Result<Vec<Schedule>, Box<dyn std::error::Error>> {
+        let base_url = &self.base_url;
+
         let response = self
             .client
-            .get(format!("{}/{}", self.base_url, REGULAR_NOW_ENDPOINT))
+            .get(format!("{base_url}/{REGULAR_NOW_ENDPOINT}"))
             .send()
             .await?;
 
@@ -48,9 +52,11 @@ impl SplaClient {
     }
 
     pub async fn get_x_schedule(&self) -> Result<Vec<Schedule>, Box<dyn std::error::Error>> {
+        let base_url = &self.base_url;
+
         let response = self
             .client
-            .get(format!("{}/{}", self.base_url, X_SCHEDULE_ENDPOINT))
+            .get(format!("{base_url}/{X_SCHEDULE_ENDPOINT}"))
             .send()
             .await?;
 
