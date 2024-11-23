@@ -10,9 +10,9 @@ pub struct SplaClient {
 
 impl SplaClient {
     pub fn new() -> Result<Self, Box<dyn std::error::Error>> {
-        Self::new_with_base_url(
-            std::env::var("DEFAULT_BASE_URL").unwrap_or_else(|_| "".to_string()),
-        )
+        let base_url = std::env::var("DEFAULT_BASE_URL")
+            .unwrap_or_else(|_| "https://spla3.yuu26.com/api".to_string());
+        Self::new_with_base_url(base_url)
     }
 
     pub fn new_with_base_url(base_url: String) -> Result<Self, Box<dyn std::error::Error>> {
