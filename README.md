@@ -16,7 +16,7 @@ Add this to your `Cargo.toml`
 
 ```toml
 [dependencies]
-splatoon3-rs = "0.1.0"
+splatoon3-rs = "0.1.2"
 tokio = { version = "1.0", features = ["full"] }
 ```
 
