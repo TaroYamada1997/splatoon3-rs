@@ -27,17 +27,22 @@ use splatoon3_rs::client::SplaClient;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-// Create a new client
-let client = SplaClient::new()?;
-// Get current Regular Battle stages
-let regular_stages = client.get_now_regular_open_stages().await?;
-// Get upcoming Bankara Open stages
-let bankara_open_stages = client.get_next_bankara_open_stages().await?;
-// Get Bankara Challenge schedule
-let bankara_challenge_stages = client.get_bankara_challenge_schedule().await?;
-// Get X Battle schedule
-let x_battle_stages = client.get_x_schedule().await?;
-Ok(())
+  // Create a new client
+  let client = SplaClient::new()?;
+
+  // Get current Regular Battle stages
+  let regular_stages = client.get_now_regular_open_stages().await?;
+
+  // Get upcoming Bankara Open stages
+  let bankara_open_stages = client.get_next_bankara_open_stages().await?;
+
+  // Get Bankara Challenge schedule
+  let bankara_challenge_stages = client.get_bankara_challenge_schedule().await?;
+
+  // Get X Battle schedule
+  let x_battle_stages = client.get_x_schedule().await?;
+
+  Ok(())
 }
 ```
 
